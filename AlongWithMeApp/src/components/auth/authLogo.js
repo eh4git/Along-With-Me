@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import { View,  Image} from 'react-native';
-import LogoImage from '../../assets/images/headphonebook.png'
+import LogoImage from '../../assets/images/along-with-me-logo.png'
 
 const LogoComponent = () => (
     <View style={{alignItems:'center'}}>
@@ -9,8 +9,8 @@ const LogoComponent = () => (
             source={LogoImage}
             resizeMode={'center'}
             style={{
-                width: 170,
-                height: 150
+                width: 250,
+                height: 250
             }}
         
         />
