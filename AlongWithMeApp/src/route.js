@@ -1,9 +1,9 @@
 import React from 'react';
-import {Platform} from  'react-native';
+import { Platform, Button } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
-import { 
+import {
     createAppContainer,
     createSwitchNavigator
 } from 'react-navigation';
@@ -24,14 +24,20 @@ import Settings from "./components/settings/index"
 
 import Logo from "./utils/logo"
 
-const headerConf= {
+
+const headerConf = {
     headerLayoutPreset: "center",
-    defaultNavigationOptions:{
-        headerStyle:{
+    defaultNavigationOptions: {
+        headerStyle: {
             backgroundColor: "#A25B2C",
         },
         headerTintColor: 'white',
-        headerTitle: Logo
+        headerTitle: Logo,
+        headerRight: () => (
+            <Button title="logOut" onPress={() => {
+                console.log("logOut")
+            }} color="#D9C0AB" />
+        )
     }
 }
 
@@ -59,40 +65,40 @@ const AppStack = createBottomTabNavigator({
     // News: NewsStack,
     Home: HomeStack,
     Settings: SettingStack
-},{
-    tabBarOptions:{
+}, {
+    tabBarOptions: {
         activeTintColor: "#fff",
         showLabel: false,
         activeBackgroundColor: "#A36F4C",
         inactiveBackgroundColor: "#D9C0AB",
-        style:{
+        style: {
             backgroundColor: "#A25B2C"
         }
     },
     initialRouteName: "Home",
-    defaultNavigationOptions:({navigation})=>({
-        tabBarIcon:({focused, horizontal, tintColor})=>{
-           const {routeName}= navigation.state;
+    defaultNavigationOptions: ({ navigation }) => ({
+        tabBarIcon: ({ focused, horizontal, tintColor }) => {
+            const { routeName } = navigation.state;
             let iconName;
             routeName === 'Home' ? iconName = 'home' : iconName = 'settings'
-           return <Ionicons name={iconName} size={25} color={tintColor}/>
-       }
-   })
+            return <Ionicons name={iconName} size={25} color={tintColor} />
+        }
+    })
 });
 
 const AuthStack = createStackNavigator({
-    SignIn:SignIn
-}, 
-{
-    headerMode: 'none'
-})
-
-export const RootNavigator = () =>{
-    return createAppContainer(createSwitchNavigator({
-        App:AppStack,
-        Auth:AuthStack
-    }, 
+    SignIn: SignIn
+},
     {
-        initialRouteName: 'Auth'
-    }))
+        headerMode: 'none'
+    })
+
+export const RootNavigator = () => {
+    return createAppContainer(createSwitchNavigator({
+        App: AppStack,
+        Auth: AuthStack
+    },
+        {
+            initialRouteName: 'Auth'
+        }))
 }
