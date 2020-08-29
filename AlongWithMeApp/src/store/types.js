@@ -3,3 +3,4 @@ export const SIGN_UP = 'sign_up';
 export const AUTO_SIGN_IN = 'auto_sign-in';
 export const GET_NEWS = 'get_news';
 export const GET_GAMES = 'get_games';
+export const MODAL_OPEN = "modal_open"
