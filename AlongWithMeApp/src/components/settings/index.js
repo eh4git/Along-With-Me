@@ -12,7 +12,8 @@ import {
   Text,
   StatusBar,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Platform
 } from 'react-native';
 
 import { connect } from 'react-redux';
@@ -22,6 +23,7 @@ import { connect } from 'react-redux';
 
 class SettingsComponent extends Component {
 
+  
   state = {
     rain: 'pick your choice',
     forest: 'pick your choice',
@@ -49,7 +51,7 @@ class SettingsComponent extends Component {
 
             <Picker
               selectedValue={this.state.rain}
-              style={{height: 50, width: 150}}
+              style={{height: 50, width: 150}, styles.pickers}
               onValueChange={(itemValue, itemIndex) =>
               this.setState({rain: itemValue})
             }>
@@ -63,7 +65,7 @@ class SettingsComponent extends Component {
 
             <Picker
               selectedValue={this.state.forest}
-              style={{height: 50, width: 150}}
+              style={{height: 50, width: 150}, styles.pickers}
               onValueChange={(itemValue, itemIndex) =>
               this.setState({forest: itemValue})
             }>
@@ -77,7 +79,7 @@ class SettingsComponent extends Component {
 
             <Picker
               selectedValue={this.state.fireplace}
-              style={{height: 50, width: 150}}
+              style={{height: 50, width: 150}, styles.pickers}
               onValueChange={(itemValue, itemIndex) =>
               this.setState({fireplace: itemValue})
             }>
@@ -105,7 +107,13 @@ class SettingsComponent extends Component {
 }
 
 const styles = StyleSheet.create({
- 
+  pickers: {
+  ...Platform.select({
+    ios: {
+      margin: 1,
+    }
+  })
+  }
 });
 
 function mapStateToProps(state) {
