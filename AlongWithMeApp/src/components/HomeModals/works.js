@@ -81,11 +81,11 @@ const styles = StyleSheet.create({
   //   alignItems: "center",
   //   marginTop: 22
   // },
-  // centeredView1: {
-  //   flex: 1,
-  //   // justifyContent: "center",
-  //   marginTop: 22
-  // },
+  centeredView1: {
+    flex: 1,
+    justifyContent: "center",
+    marginTop: 22
+  },
   // centeredView3: {
   //   flex: 1,
   //   justifyContent: "center",
