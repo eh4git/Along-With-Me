@@ -32,7 +32,7 @@ export default class FaqComponent extends Component {
   render() {
     const { modalVisible } = this.state;
     return (
-      <View style={styles.centeredView}>
+      <View >
         <Modal
           animationType="fade"
           transparent={true}
@@ -74,24 +74,24 @@ export default class FaqComponent extends Component {
 }
 
 const styles = StyleSheet.create({
-  centeredView: {
-    flex: 1,
-    width: '35%',
-    // justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
-  },
-  centeredView1: {
-    flex: 1,
-    // justifyContent: "center",
-    marginTop: 22
-  },
-  centeredView3: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
-  },
+  // centeredView: {
+  //   flex: 1,
+  //   width: '35%',
+  //   // justifyContent: "center",
+  //   alignItems: "center",
+  //   // marginTop: 22
+  // },
+  // centeredView1: {
+  //   flex: 1,
+  //   // justifyContent: "center",
+  //   marginTop: 22
+  // },
+  // centeredView3: {
+  //   flex: 1,
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   marginTop: 22
+  // },
   modalView: {
     margin: 20,
     backgroundColor: "white",

@@ -29,7 +29,7 @@ class HomeComponent extends Component {
   render() {
     return (
 
-      <View style={styles.centeredView3}>
+      <View style={styles.centeredView}>
                 <Faq />
                 <Works />
                 <Contact />
@@ -52,18 +52,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '35%',
     // justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
-  },
-  centeredView1: {
-    flex: 1,
-    // justifyContent: "center",
-    marginTop: 22
-  },
-  centeredView3: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
     marginTop: 22
   },
   modalView: {
