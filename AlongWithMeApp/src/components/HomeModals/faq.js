@@ -43,7 +43,16 @@ export default class FaqComponent extends Component {
         >
           <View style={styles.centeredView1}>
             <View style={styles.modalView}>
-              <Text style={styles.modalText}>This is the FAQ Modal!</Text>
+              <Text style={styles.modalText}>FAQ</Text> 
+              <Text style={styles.questionStyle}>Q: bvidabfvsdfbvladfjfba;</Text>
+              <Text>A: adjbfiavnpdfjnv{"\n"}</Text>
+              <Text style={styles.questionStyle}>Q: bvidabfvsdfbvladfjfba;</Text>
+              <Text>A: adjbfiavnpdfjnv{"\n"}</Text>
+              <Text style={styles.questionStyle}>Q: bvidabfvsdfbvladfjfba;</Text>
+              <Text>A: adjbfiavnpdfjnv{"\n"}</Text>
+              <Text style={styles.questionStyle}>Q: bvidabfvsdfbvladfjfba;</Text>
+              <Text>A: adjbfiavnpdfjnv{"\n"}</Text>
+
 
               <TouchableHighlight
                 style={{ ...styles.openButton, backgroundColor: "#A25B2C" }}
@@ -118,9 +127,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center"
   },
+  questionStyle: {
+    fontWeight: "bold"
+  },
   modalText: {
     marginBottom: 15,
-    textAlign: "center"
+    textAlign: "center", 
+    fontWeight: "bold",
+    fontSize: 20,
   }
 });
 
