@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-
+import Works from "../HomeModals/works"
 import Faq from '../HomeModals/faq'
 
 import {
@@ -22,12 +22,16 @@ import { connect } from 'react-redux';
 
 
 class HomeComponent extends Component {
+ 
+
 
   render() {
     return (
-    
+
       <View style={styles.centeredView3}>
-        <Faq />
+                <Faq />
+                <Works />
+
       <TouchableHighlight
           style={styles.openButton}
           onPress={() => {
@@ -37,7 +41,6 @@ class HomeComponent extends Component {
           <Text style={styles.textStyle}>Start Listening</Text>
         </TouchableHighlight>
       </View>
-   
     );
   }
 }
