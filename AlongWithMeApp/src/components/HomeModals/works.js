@@ -43,7 +43,13 @@ export default class WorksComponent extends Component {
         >
           <View style={styles.centeredView1}>
             <View style={styles.modalView}>
-              <Text style={styles.modalText}>This is the Works Modal!</Text>
+              <Text style={styles.modalHeader}>This is the Works Modal!</Text>
+              <Text style={styles.modalSubHeader}>Getting Started</Text>
+              <Text style={styles.modalText}>We will let you know how when we know!</Text>
+              <Text style={styles.modalSubHeader}>Navigating the App</Text>
+              <Text style={styles.modalText}>We will let you know how when we know</Text>
+              <Text style={styles.modalSubHeader}>Selecting Sounds</Text>
+              <Text style={styles.modalText}>We will let you know how when we know!</Text>
 
               <TouchableHighlight
                 style={{ ...styles.openButton, backgroundColor: "#A25B2C" }}
@@ -117,6 +123,13 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     textAlign: "center"
+  },
+  modalHeader: {
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+  modalSubHeader:{
+    fontWeight: "bold"
   },
   modalText: {
     marginBottom: 15,
