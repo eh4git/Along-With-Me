@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Works from "../HomeModals/works"
 import Faq from '../HomeModals/faq'
+import Contact from '../HomeModals/contact';
 
 import {
 
@@ -31,6 +32,7 @@ class HomeComponent extends Component {
       <View style={styles.centeredView3}>
                 <Faq />
                 <Works />
+                <Contact />
 
       <TouchableHighlight
           style={styles.openButton}
