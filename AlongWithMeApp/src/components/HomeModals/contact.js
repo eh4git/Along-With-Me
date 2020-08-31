@@ -42,7 +42,28 @@ export default class Contact extends Component {
         >
           <View style={styles.centeredView1}>
             <View style={styles.modalView}>
-              <Text style={styles.modalText}>Contact Modal!</Text>
+              <Text style={styles.modalTitle}>Contact Us</Text>
+
+              <Text style={styles.modalText}>
+                Hello! We're Third Project Development, a small four person team made up of web-developers. 
+                (enter more about us here!)
+              </Text>
+
+              <Text style={styles.modalTitle}>
+                    Check us out at:
+              </Text>
+              <Text style={styles.modalText}>
+                    {/* Add link here */}
+                    https://tiiedye.github.io/ThirdProjectDev/
+              </Text>
+
+              <Text style={styles.modalTitle}>
+                    Email us at:
+              </Text>
+              <Text style={styles.modalText}>
+                    {/* add a link here to open email */}
+                    ThirdProjectDev@gmail.com
+              </Text>
 
               <TouchableHighlight
                 style={{ ...styles.openButton, backgroundColor: "#A25B2C" }}
@@ -120,6 +141,11 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center"
+  },
+  modalTitle: {
+    marginBottom: 15,
+    textAlign: "center",
+    fontWeight: "bold"
   }
 });
 
