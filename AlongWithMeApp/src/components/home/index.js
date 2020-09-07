@@ -36,11 +36,9 @@ class HomeComponent extends Component {
 
       <TouchableHighlight
           style={styles.openButton}
-          onPress={() => {
-            this.setModalVisible(true);
-          }}
+          onPress={()=> this.props.navigation.navigate('Story')}
         >
-          <Text style={styles.textStyle}>Start Listening</Text>
+          <Text style={styles.textStyle}>A Little Princess</Text>
         </TouchableHighlight>
       </View>
     );
@@ -79,7 +77,8 @@ const styles = StyleSheet.create({
   textStyle: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
+   
   },
   modalText: {
     marginBottom: 15,
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
 function mapStateToProps(state) {
   console.log(state)
   return {
-    News: state.News
+    Home: state.Home
   }
 }
 
