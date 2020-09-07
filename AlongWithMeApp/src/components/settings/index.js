@@ -111,18 +111,19 @@ var fire3 = new Sound(FireSound3, Sound.MAIN_BUNDLE, (error) => {
   })
 })
 //volume control
-rain1.setVolume(1);
-fire1.setVolume(50)
+rain1.setVolume(50);
+fire1.setVolume(100)
 fire2.setVolume(50)
-fire3.setVolume(50)
+fire3.setVolume(100)
 
 class SettingsComponent extends Component {
   state = {
     rain: 'pick your choice',
     forest: 'pick your choice',
-    fireplace: 'pick your choice'
+    fire: 'Fire1'
   }
   componentDidMount() {
+    console.warn(this.state.fire)
     // this.props.dispatch(getNews());
   }
   playRainSound()  {
@@ -131,13 +132,82 @@ class SettingsComponent extends Component {
   }
 
   playFireSound() {
-    fire3.play()
-    console.warn("button runs")
+    console.warn(this.state.fire)
+
+    // console.warn(this.state.fire)
+    switch(this.state.fire) {
+      case "Fire1":
+        fire1.play();
+        console.warn("this is 1")
+        break;
+      case "Fire2":
+        fire2.play();
+        console.warn("this is 2")
+        break;
+      case "Fire3":
+        fire3.play();
+        console.warn("this is 3")
+        break;
+      case "FireRandom":
+        let FireRandomInteger = Math.floor(Math.random() * 3) + 1
+          switch (FireRandomInteger) {
+            case 1: 
+              fire1.play();
+              console.warn("this is 1")
+              break;
+            case 2: 
+              fire2.play();
+              console.warn("this is 2")
+              break;
+            case 3: 
+              fire3.play();
+              console.warn("this is 3")
+              break;
+            default: 
+              break;
+          }
+    }
+    // fire2.play()
+    // console.warn("button runs")
   }
 
   stopFireSound() {
+    fire2.stop()
+    console.warn("stopping1")
+
+    fire1.stop()
+    console.warn("stopping2")
+
     fire3.stop()
+    console.warn("stopping3")
   }
+
+  // switchSound (state, case1, case2, case3, caseRandom) {
+  //   switch(this.state.fire) {
+  //     case "Fire1":
+  //       fire1.play();
+  //       console.warn("this is 1")
+  //       break;
+  //     case "Fire2":
+  //       fire2.play();
+  //       console.warn("this is 2")
+  //       break;
+  //     case "Fire3":
+  //       fire3.play();
+  //       console.warn("this is 3")
+  //       break;
+  //     case "FireRandom":
+  //       let FireRandomInteger = Math.floor(Math.random() * 3) + 1
+  //       this.switchSound(state, case1, case2, case3, FireRandomInteger)
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // }
+
+  // switchRandom (randomInteger) {
+  //   switch (randomInteger) 
+  // }
   render() {
     return (
       <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
@@ -167,11 +237,11 @@ class SettingsComponent extends Component {
               <Picker.Item label="Randomize" value="RainRandom" />
             </Picker>
             <Text>Forest
-              <Button
+              {/* <Button
                 onPress={this.playFireSound}
                 title=":sound:"
                 accessibilityLabel="Button to play fire sound"
-              />
+              /> */}
             </Text>
             <Picker
               selectedValue={this.state.forest}
@@ -186,7 +256,7 @@ class SettingsComponent extends Component {
             </Picker>
             <Text>Fire
               <Button
-                onPress={this.playFireSound}
+                onPress={this.playFireSound.bind(this)}
                 title=":sound:"
                 accessibilityLabel="Button to play fire sound"
               />
@@ -197,15 +267,15 @@ class SettingsComponent extends Component {
               />
             </Text>
             <Picker
-              selectedValue={this.state.fireplace}
+              selectedValue={this.state.fire}
               style={{height: 50, width: 150}, styles.pickers}
               onValueChange={(itemValue, itemIndex) =>
-              this.setState({fireplace: itemValue})
+              this.setState({fire: itemValue})
             }>
-              <Picker.Item label="Fireplace 1" value="Fireplace1" />
-              <Picker.Item label="Fireplace 2" value="Fireplace2" />
-              <Picker.Item label="Fireplace 3" value="Fireplace3" />
-              <Picker.Item label="Randomize" value="FireplaceRandom" />
+              <Picker.Item label="Fire 1" value="Fire1" />
+              <Picker.Item label="Fire 2" value="Fire2" />
+              <Picker.Item label="Fire 3" value="Fire3" />
+              <Picker.Item label="Randomize" value="FireRandom" />
             </Picker>
             <Text h2>
               Volume
