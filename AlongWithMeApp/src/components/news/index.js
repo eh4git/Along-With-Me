@@ -55,7 +55,7 @@ class NewsComponent extends Component {
   )
 
   render() {
-    console.log(this.props.news)
+    // console.log(this.props.news)
     return (
       <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
         {this.renderArticle(this.props.News)}
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
-  console.log(state)
+  // console.log(state)
   return {
     News: state.News
   }

@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
-  console.log(state);
+  // console.log(state);
   return {
     Games: state.Games,
   }

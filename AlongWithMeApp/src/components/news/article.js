@@ -10,48 +10,49 @@ import {
 } from 'react-native';
 import Moment from 'moment';
 
-export default class  ArticleComponent extends Component {
+export default class ArticleComponent extends Component {
 
   formatText(content) {
     const text = content.replace(/<p>/g, "").replace(/<\/p>/g, "");
     return text;
   }
 
-  render(){
+  render() {
 
     const params = this.props.navigation.state.params;
 
     return (
-        <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
-          <Image 
-            style={{height: 250}}
-            source={{uri: `https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12231413/Labrador-Retriever-MP.jpg`}}
-            resizeMode="cover"
-          />
-          <View style={styles.articleContainer}>
-            <View>
+      <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
+        <Image
+          style={{ height: 250 }}
+          source={{ uri: `https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12231413/Labrador-Retriever-MP.jpg` }}
+          resizeMode="cover"
+        />
+        <View style={styles.articleContainer}>
+          <View>
 
-              <Text style={styles.articleTitle}>
-                {params.title}
-              </Text>
+            <Text style={styles.articleTitle}>
+              {params.title}
+            </Text>
 
-              <Text style={styles.articleData}>
-                {params.team} - Posted at {Moment(params.date).format('d MMMM')}
-              </Text>
-
-            </View>
-
-            <View style={styles.articleContent}>
-              <Text style={styles.articleText}>
-                {this.formatText(params.content)}
-              </Text>
-            </View>
+            <Text style={styles.articleData}>
+              {params.team} - Posted at {Moment(params.date).format('d MMMM')}
+            </Text>
 
           </View>
-        </ScrollView>
+
+          <View style={styles.articleContent}>
+            <Text style={styles.articleText}>
+              {this.formatText(params.content)}
+            </Text>
+          </View>
+
+        </View>
+      </ScrollView>
     );
-}
   }
+}
+
 const styles = StyleSheet.create({
   scrollView: {
     top: 50
