@@ -25,11 +25,11 @@ export function getGames() {
                         localData: findTeamData(articles[key].local, teams)
                     })
                 }
-                console.log(responseData)
+                // console.log(responseData)
                 resolve(responseData)
             })
         }).catch(e => {
-            console.log(e);
+            // console.log(e);
             reject(false)
         })
     })
