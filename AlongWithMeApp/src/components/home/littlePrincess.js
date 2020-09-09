@@ -94,10 +94,10 @@ class PrincessComponent extends Component {
     return (
       <ScrollView style={{ backgroundColo: '#F0F0F0' }}>
         <View>
-          <Button
+          {/* <Button
             title="Find Keywords"
             onPress={this.replaceTextFunction}
-          />
+          /> */}
           <Text>
             <Highlighter
               highlightStyle={{ backgroundColor: 'yellow' }}
