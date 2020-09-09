@@ -287,6 +287,9 @@ class SettingsComponent extends Component {
               step={1}
               value={50}
             />
+        <Text>
+          Sound Credit to Zapsplat
+        </Text>
         </View>
       </ScrollView>
     );
