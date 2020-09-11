@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Slider from "@react-native-community/slider"
 import { Picker } from "@react-native-community/picker"
 import {rain1, fire1, fire2, fire3} from "../../utils/sounds"
+import * as firebase from "firebase";
 
 
 // var Sound = require("react-native-sound");
@@ -11,7 +12,7 @@ import {
   StyleSheet,
   ScrollView,
   View,
-  Text,
+  Text, 
   StatusBar,
   Image,
   TouchableOpacity,
@@ -19,6 +20,18 @@ import {
   Platform
 } from 'react-native';
 import { connect } from 'react-redux';
+
+const config = {
+  apiKey: "AIzaSyC8aDxXuCMwppO6ne9IPSwxuGn-ikFUURE",
+  authDomain: "alongwithme-22328.firebaseapp.com",
+  databaseURL: "https://alongwithme-22328.firebaseio.com",
+  projectId: "alongwithme-22328",
+  storageBucket: "alongwithme-22328.appspot.com",
+  messagingSenderId: "455176172872",
+  appId: "1:455176172872:web:0f95df233b7f92e359ef7d",
+  measurementId: "G-W2GYKM516W"
+}; 
+firebase.initializeApp(config);
 
 //volume control
 rain1.setVolume(50);
@@ -28,14 +41,54 @@ fire3.setVolume(100)
 
 class SettingsComponent extends Component {
   state = {
-    rain: 'pick your choice',
+    rain: 'pick your choice', 
     forest: 'pick your choice',
-    fire: 'Fire1'
+    fire: 'Fire1',
+    settings: []
   }
+  //plz work
   componentDidMount() {
-    console.warn(this.state.fire)
-    // this.props.dispatch(getNews());
+    console.warn(this.state.settings)
+    firebase
+      .database()
+      .ref()
+      .child("rain")
+      .once("value", snapshot => {
+        const data = snapshot.val()
+        if (data) {
+          const initSettings = []
+          Object
+            .keys(data)
+            .forEach(setting => initSettings.push(data[setting]));
+            this.setState({
+              settings: initSettings
+            })
+        }
+      })
+      firebase
+      .database()
+      .ref()
+      .child("rain")
+      .on("child_added", snapshot => {
+        const data = snapshot.val()
+        if (data) {
+          this.setState(prevState => ({
+            settings: [data, ...prevState.settings]
+          }))
+        }
+      })
+
   }
+
+  saveSettings () {
+    if (!this.state.message) return;
+
+    const newSettings = firebase.database().ref()
+                                .child("rain")
+                                .push();
+    newSettings.set(this)
+  }
+
   playRainSound()  {
       rain1.play()
       console.warn("hi")
@@ -43,6 +96,7 @@ class SettingsComponent extends Component {
 
   playFireSound() {
     console.warn(this.state.fire)
+    console.warn(this.state.settings)
 
     // console.warn(this.state.fire)
     switch(this.state.fire) {
@@ -123,10 +177,11 @@ class SettingsComponent extends Component {
       <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
         <View>
             <Text h1>
-             Settings
+             Settings - Your settings will not save if you are not logged in!
             </Text>
             <Text h2>
-              Your Sounds
+              {/* Your Sounds */}
+              {this.state.settings}
             </Text>
             <Text>Rain
               <Button
