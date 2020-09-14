@@ -106,6 +106,7 @@ class PrincessComponent extends Component {
               onPressHighlightedText={this.playFire}
               onPressNormalText={this.stopFire}
             />
+           
           </Text>
 
         </View>
