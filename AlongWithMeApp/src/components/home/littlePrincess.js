@@ -106,6 +106,13 @@ class PrincessComponent extends Component {
               onPressHighlightedText={this.playFire}
               onPressNormalText={this.stopFire}
             />
+            <Highlighter
+              highlightStyle={{ backgroundColor: 'red' }}
+              searchWords={['grate']}
+              textToHighlight={story}
+              onPressHighlightedText={this.playFire}
+              onPressNormalText={this.stopFire}
+            />
           </Text>
 
         </View>
