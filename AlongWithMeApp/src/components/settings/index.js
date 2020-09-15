@@ -44,11 +44,12 @@ class SettingsComponent extends Component {
     rain: 'pick your choice', 
     forest: 'pick your choice',
     fire: 'Fire1',
-    settings: []
+    settings: [],
+    setting: 'whynnno'
   }
   //plz work
   componentDidMount() {
-    console.warn(this.state.settings)
+    // console.warn(this.state.settings)
     firebase
       .database()
       .ref()
@@ -81,12 +82,11 @@ class SettingsComponent extends Component {
   }
 
   saveSettings () {
-    if (!this.state.message) return;
+    console.warn(this.state.setting)
+    // if (!this.state.setting) return;
 
-    const newSettings = firebase.database().ref()
-                                .child("rain")
-                                .push();
-    newSettings.set(this)
+    const newSettings = firebase.database().ref().child("rain").push();
+    newSettings.set(this.state.setting)
   }
 
   playRainSound()  {
@@ -95,37 +95,32 @@ class SettingsComponent extends Component {
   }
 
   playFireSound() {
-    console.warn(this.state.fire)
-    console.warn(this.state.settings)
+    // console.warn(this.state.fire)
+    // console.warn(this.state.settings)
+    console.warn(this.state.setting)
 
     // console.warn(this.state.fire)
     switch(this.state.fire) {
       case "Fire1":
         fire1.play();
-        console.warn("this is 1")
         break;
       case "Fire2":
         fire2.play();
-        console.warn("this is 2")
         break;
       case "Fire3":
         fire3.play();
-        console.warn("this is 3")
         break;
       case "FireRandom":
         let FireRandomInteger = Math.floor(Math.random() * 3) + 1
           switch (FireRandomInteger) {
             case 1: 
               fire1.play();
-              console.warn("this is 1")
               break;
             case 2: 
               fire2.play();
-              console.warn("this is 2")
               break;
             case 3: 
               fire3.play();
-              console.warn("this is 3")
               break;
             default: 
               break;
@@ -137,13 +132,10 @@ class SettingsComponent extends Component {
 
   stopFireSound() {
     fire2.stop()
-    console.warn("stopping1")
 
     fire1.stop()
-    console.warn("stopping2")
 
     fire3.stop()
-    console.warn("stopping3")
   }
 
   // switchSound (state, case1, case2, case3, caseRandom) {
@@ -195,6 +187,7 @@ class SettingsComponent extends Component {
               style={{height: 50, width: 150}, styles.pickers}
               onValueChange={(itemValue, itemIndex) =>
               this.setState({rain: itemValue})
+              
             }>
               <Picker.Item label="Rain 1" value="Rain1" />
               <Picker.Item label="Rain 2" value="Rain2" />
@@ -235,8 +228,8 @@ class SettingsComponent extends Component {
               selectedValue={this.state.fire}
               style={{height: 50, width: 150}, styles.pickers}
               onValueChange={(itemValue, itemIndex) =>
-              this.setState({fire: itemValue})
-            }>
+              this.setState({fire: itemValue, setting: itemValue})}
+              >
               <Picker.Item label="Fire 1" value="Fire1" />
               <Picker.Item label="Fire 2" value="Fire2" />
               <Picker.Item label="Fire 3" value="Fire3" />
@@ -252,9 +245,16 @@ class SettingsComponent extends Component {
               step={1}
               value={50}
             />
+            <Button
+                onPress={this.saveSettings.bind(this)}
+                title="Save Settings"
+                accessibilityLabel="Button to save your settings"
+              />
         <Text>
           Sound Credit to Zapsplat
         </Text>
+
+        
         </View>
       </ScrollView>
     );
