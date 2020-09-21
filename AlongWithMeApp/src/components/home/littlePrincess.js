@@ -95,24 +95,6 @@ class PrincessComponent extends Component {
     fire1.stop()
   }
 
-  // replaceTextFunction = () => {
-  //   var SampleText = this.state.TextHolder.toString();
-  //   var NewText = SampleText.replace("fire", () => { { <TouchableHighlight onPress={() => console.warn("WORKING")}>fire</TouchableHighlight> } });
-  //   console.log(NewText)
-  //   this.setState({ TextHolder: NewText });
-  // }
-
-  // filteredResult (story) {
-  //   let splitStory = story.split(" ");
-  //   let result = "";
-
-  //   // for loop, filtered through splitStory
-  //   // if/else - if keyword matches it returns TouchableHighlight
-  //     // else just return word.
-
-  // }
-
-
   render() {
     const params = this.props.navigation.state.params;
 

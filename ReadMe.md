@@ -35,6 +35,63 @@ npm i
 ## Usage
 This application is run with React-Native. To run this application locally with android, an android emulator with AndroidStudio needs to be installed. To run with ios, xcode must be installed.
 
+Updates need to be made to react-native-highlight-words node module to update run this package as well;
+
+In react-native-highlight-words index.js, copy and paste this code:
+
+     import React from 'react';
+     import {Text} from 'react-native';
+     import {findAll} from 'highlight-words-core';
+     import PropTypes from 'prop-types';
+
+     Highlighter.propTypes = {
+          autoEscape: PropTypes.bool,
+          highlightStyle: Text.propTypes.style,
+          searchWords: PropTypes.arrayOf(PropTypes.string).isRequired,
+          textToHighlight: PropTypes.string.isRequired,
+          sanitize: PropTypes.func,
+          style: Text.propTypes.style,
+          onPressNormalText: PropTypes.func,
+          onPressHighlightedText: PropTypes.func
+     };
+
+     export default function Highlighter({
+          autoEscape,
+          highlightStyle,
+          searchWords,
+          textToHighlight,
+          sanitize,
+          style,
+          onPressNormalText,
+          onPressHighlightedText,
+          ...props
+     }) {
+          const chunks = findAll({textToHighlight, searchWords, sanitize, autoEscape});
+
+    return (
+        <Text style={style} {...props} onPress={onPressNormalText}>
+            {chunks.map((chunk, index) => {
+                const text = textToHighlight.substr(chunk.start, chunk.end - chunk.start);
+
+                return (!chunk.highlight)
+                    ? text
+                    : (
+                        <Text
+                            key={index}
+                            onPress={onPressHighlightedText}
+                            style={chunk.highlight && highlightStyle}
+                        >
+                            {text}
+                        </Text>
+                    );
+            })}
+        </Text> 
+      );
+     }
+
+Also to run this application, some lines must be commented out in Android/app/src/main/java/MainApplication.java:
+* lines 37 - 41
+
 You run this application in terminal or bash with npx react-native start. To start the android application run npx react-native run-android.
 To start the ios application run npx react-native run-ios
 
@@ -72,10 +129,10 @@ Contributors allowed, please reach out to admin if interested.
 ## Developers
 
 ### Anna Conover
-
-<!-- <img src="./client/src/images/teamAnna.png"
-     alt="Picture of Developer Anna in game"
-     style="margin-right: 10px; height: 200px;" /> -->
+<!-- <img src="./AlongWithMeApp/src/assets/images/homepage.png" -->
+<img src="./AlongWithMeApp/src/assets/images/AnnaBook.png"
+     alt="Picture of Developer Anna with a book"
+     style="margin-right: 10px; height: 200px;" />
 
 * Github username: annaxgrace
 * Email: anna.grace.conover@gmail.com
