@@ -101,11 +101,11 @@ const styles = StyleSheet.create({
   //   alignItems: "center",
   //   // marginTop: 22
   // },
-  centeredView1: {
-    flex: 1,
-    justifyContent: "center",
-    marginTop: 22
-  },
+  // centeredView1: {
+  //   flex: 1,
+  //   textAlign: "center",
+  //   marginTop: 22
+  // },
   // centeredView3: {
   //   flex: 1,
   //   // justifyContent: "center",
@@ -128,10 +128,12 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   openButton: {
-    backgroundColor: "#A25B2C",
+    backgroundColor: "#A36F4C",
     borderRadius: 20,
     padding: 10,
-    elevation: 2
+    elevation: 2,
+    width: '100%',
+    height: 40
   },
   textStyle: {
     color: "white",
