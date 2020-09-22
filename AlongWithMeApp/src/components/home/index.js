@@ -36,9 +36,23 @@ class HomeComponent extends Component {
 
       <TouchableHighlight
           style={styles.openButton}
-          onPress={()=> this.props.navigation.navigate('Story')}
+          onPress={()=> this.props.navigation.navigate('Princess')}
         >
           <Text style={styles.textStyle}>A Little Princess</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          style={styles.openButton}
+          onPress={()=> this.props.navigation.navigate('Jungle')}
+        >
+          <Text style={styles.textStyle}>Jungle Book</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          style={styles.openButton}
+          onPress={()=> this.props.navigation.navigate('Jane')}
+        >
+          <Text style={styles.textStyle}>Jane Eyre</Text>
         </TouchableHighlight>
       </View>
     );

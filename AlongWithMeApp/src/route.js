@@ -15,7 +15,9 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 // SCREENS
 
 import SignIn from './components/auth';
-import Story from './components/home/littlePrincess'
+import Princess from './components/home/littlePrincess'
+import Jungle from './components/home/jungleBook'
+import Jane from './components/home/janeEyre'
 import News from './components/news';
 import Article from "./components/news/article"
 import Games from './components/games'
@@ -24,6 +26,7 @@ import Home from "./components/home/index"
 import Settings from "./components/settings/index"
 
 import Logo from "./utils/logo"
+import littlePrincess from './components/home/littlePrincess';
 
 
 const headerConf = {
@@ -51,7 +54,9 @@ Ionicons.loadFont()
 
 const HomeStack = createStackNavigator({
     Home: Home,
-    Story: Story
+    Princess: Princess,
+    Jungle: Jungle,
+    Jane: Jane,
 }, headerConf)
 
 const SettingStack = createStackNavigator({
