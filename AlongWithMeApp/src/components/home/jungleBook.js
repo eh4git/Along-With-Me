@@ -71,7 +71,7 @@ class JungleComponent extends Component {
   playSound() {
     console.warn(this);
     // console.warn(this.children)
-    if (this.children === 'fire') {
+    if (this.children === ' fire ') {
       console.warn("ITS A FIRE");
       fire1.play();
     }
