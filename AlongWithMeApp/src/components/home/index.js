@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   image: {
     resizeMode: "cover",
     position: "absolute",
-    height: 560,
+    height: 610,
     flex: 1,
   },
   // bigView: {
@@ -172,6 +172,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginBottom: 10,
     fontSize: 28,
+    fontWeight: "bold",
     textAlign: "center",
     // color: "#A25B2C"
   },

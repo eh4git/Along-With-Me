@@ -71,8 +71,8 @@ class JaneComponent extends Component {
   playSound() {
     console.warn(this);
     // console.warn(this.children)
-    if (this.children === 'fire') {
-      console.warn("ITS A FIRE");
+    if (this.children === ' rain ') {
+      console.warn("ITS RAIN");
       fire1.play();
     }
     else if (this.children === 'grate') {
