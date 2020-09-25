@@ -44,8 +44,11 @@ class SettingsComponent extends Component {
     rain: 'pick your choice', 
     forest: 'pick your choice',
     fire: 'Fire1',
-    settings: [],
-    setting: 'whynnno'
+    rainSettings: [],
+    setting: 'whynnno',
+    fireSettings: [],
+    forestSettings: [],
+    volumeSettings: [] 
   }
   //plz work
   componentDidMount() {
@@ -62,7 +65,7 @@ class SettingsComponent extends Component {
             .keys(data)
             .forEach(setting => initSettings.push(data[setting]));
             this.setState({
-              settings: initSettings
+              rainSettings: initSettings
             })
         }
       })
@@ -74,7 +77,91 @@ class SettingsComponent extends Component {
         const data = snapshot.val()
         if (data) {
           this.setState(prevState => ({
-            settings: [data, ...prevState.settings]
+            rainSettings: [data, ...prevState.rainSettings]
+          }))
+        }
+      })
+      firebase
+      .database()
+      .ref()
+      .child("fire")
+      .once("value", snapshot => {
+        const data = snapshot.val()
+        if (data) {
+          const initSettings = []
+          Object
+            .keys(data)
+            .forEach(setting => initSettings.push(data[setting]));
+            this.setState({
+              fireSettings: initSettings
+            })
+        }
+      })
+      firebase
+      .database()
+      .ref()
+      .child("fire")
+      .on("child_added", snapshot => {
+        const data = snapshot.val()
+        if (data) {
+          this.setState(prevState => ({
+            fireSettings: [data, ...prevState.fireSettings]
+          }))
+        }
+      })
+      firebase
+      .database()
+      .ref()
+      .child("forest")
+      .once("value", snapshot => {
+        const data = snapshot.val()
+        if (data) {
+          const initSettings = []
+          Object
+            .keys(data)
+            .forEach(setting => initSettings.push(data[setting]));
+            this.setState({
+              forestSettings: initSettings
+            })
+        }
+      })
+      firebase
+      .database()
+      .ref()
+      .child("forest")
+      .on("child_added", snapshot => {
+        const data = snapshot.val()
+        if (data) {
+          this.setState(prevState => ({
+            forestSettings: [data, ...prevState.forestSettings]
+          }))
+        }
+      })
+      firebase
+      .database()
+      .ref()
+      .child("volume")
+      .once("value", snapshot => {
+        const data = snapshot.val()
+        if (data) {
+          const initSettings = []
+          Object
+            .keys(data)
+            .forEach(setting => initSettings.push(data[setting]));
+            this.setState({
+              volumeSettings: initSettings
+            })
+        }
+      })
+      firebase
+      .database()
+      .ref()
+      .child("volume")
+      .on("child_added", snapshot => {
+        const data = snapshot.val()
+        if (data) {
+          this.setState(prevState => ({
+            volumeSettings: [data, ...prevState.volumeSettings]
           }))
         }
       })
@@ -173,7 +260,10 @@ class SettingsComponent extends Component {
             </Text>
             <Text h2>
               {/* Your Sounds */}
-              {this.state.settings}
+              {this.state.rainSettings}
+              {this.state.fireSettings}
+              {this.state.forestSettings}
+              {this.state.volumeSettings}
             </Text>
             <Text>Rain
               <Button
