@@ -43,7 +43,7 @@ class SettingsComponent extends Component {
   state = {
     rain: 'pick your choice', 
     forest: 'pick your choice',
-    fire: 'Fire1',
+    fire: 'fire1',
     rainSettings: [],
     setting: 'whynnno',
     fireSettings: [],
@@ -183,22 +183,19 @@ class SettingsComponent extends Component {
   }
 
   playFireSound() {
-    // console.warn(this.state.fire)
-    // console.warn(this.state.settings)
-    console.warn(this.state.setting)
-
-    // console.warn(this.state.fire)
+    // this.switchSound(this.state.fire, "fire1", "fire2", "fire3");
     switch(this.state.fire) {
-      case "Fire1":
+      case "fire1":
         fire1.play().setVolume(this.state.sliderVol);
         break;
-      case "Fire2":
+      case "fire2":
         fire2.play().setVolume(this.state.sliderVol);
         break;
-      case "Fire3":
+      case "fire3":
         fire3.play().setVolume(this.state.sliderVol);
+        console.warn("this is 3")
         break;
-      case "FireRandom":
+      case "Random":
         let FireRandomInteger = Math.floor(Math.random() * 3) + 1
           switch (FireRandomInteger) {
             case 1: 
@@ -209,13 +206,13 @@ class SettingsComponent extends Component {
               break;
             case 3: 
               fire3.play().setVolume(this.state.sliderVol);
+              console.warn("this is 3")
               break;
             default: 
               break;
           }
     }
-    // fire2.play()
-    // console.warn("button runs")
+    console.warn("button runs")
   }
 
   stopFireSound() {
@@ -226,28 +223,50 @@ class SettingsComponent extends Component {
     fire3.stop()
   }
 
-  // switchSound (state, case1, case2, case3, caseRandom) {
-  //   switch(this.state.fire) {
-  //     case "Fire1":
-  //       fire1.play();
-  //       console.warn("this is 1")
-  //       break;
-  //     case "Fire2":
-  //       fire2.play();
-  //       console.warn("this is 2")
-  //       break;
-  //     case "Fire3":
-  //       fire3.play();
-  //       console.warn("this is 3")
-  //       break;
-  //     case "FireRandom":
-  //       let FireRandomInteger = Math.floor(Math.random() * 3) + 1
-  //       this.switchSound(state, case1, case2, case3, FireRandomInteger)
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }
+  stopRainSound() {
+    
+    rain1.stop()
+
+
+  }
+
+  switchSound (soundState, case1, case2, case3) {
+    console.warn("working in function")
+    console.warn(soundState);
+    console.warn(case1)
+   
+    switch(soundState) {
+      case case1:
+        case1.play().setVolume(this.state.sliderVol);
+        console.warn("this is 1")
+        break;
+      case case2:
+        case2.play().setVolume(this.state.sliderVol);
+        console.warn("this is 2")
+        break;
+      case caseString3:
+        case3.play().setVolume(this.state.sliderVol);
+        console.warn("this is 3")
+        break;
+      case "Random":
+        let FireRandomInteger = Math.floor(Math.random() * 3) + 1
+          switch (FireRandomInteger) {
+            case 1: 
+              case1.play().setVolume(this.state.sliderVol);
+              break;
+            case 2: 
+              case2.play().setVolume(this.state.sliderVol);
+              break;
+            case 3: 
+              case3.play().setVolume(this.state.sliderVol);
+              break;
+            default: 
+              break;
+          }
+      default:
+        break;
+    }
+  }
 
   // switchRandom (randomInteger) {
   //   switch (randomInteger) 
@@ -272,6 +291,11 @@ class SettingsComponent extends Component {
                 title= ":sound:"
                 accessibilityLabel="Button to play rain sound"
                 />
+                <Button
+                onPress={this.stopRainSound}
+                title=":stopsound:"
+                accessibilityLabel="Button to stop fire sound"
+              />
             </Text>
             <Picker
               selectedValue={this.state.rain}
@@ -321,10 +345,10 @@ class SettingsComponent extends Component {
               onValueChange={(itemValue, itemIndex) =>
               this.setState({fire: itemValue, setting: itemValue})}
               >
-              <Picker.Item label="Fire 1" value="Fire1" />
-              <Picker.Item label="Fire 2" value="Fire2" />
-              <Picker.Item label="Fire 3" value="Fire3" />
-              <Picker.Item label="Randomize" value="FireRandom" />
+              <Picker.Item label="Fire 1" value="fire1" />
+              <Picker.Item label="Fire 2" value="fire2" />
+              <Picker.Item label="Fire 3" value="fire3" />
+              <Picker.Item label="Randomize" value="Random" />
             </Picker>
             <Text h2>
               Volume

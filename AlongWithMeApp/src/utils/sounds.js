@@ -1,35 +1,51 @@
-import RainSound1 from "../assets/rain_choiceone.mp3"
-import FireSound1 from "../assets/fire_one.mp3"
-import FireSound2 from "../assets/fire_two.mp3"
-import FireSound3 from "../assets/fire_three.mp3"
+import RainSound1 from "../assets/sounds/rain_one.mp3"
+import RainSound2 from "../assets/sounds/rain_two.mp3"
+import RainSound3 from "../assets/sounds/rain_three.mp3"
+
+import FireSound1 from "../assets/sounds/fire_one.mp3"
+import FireSound2 from "../assets/sounds/fire_two.mp3"
+import FireSound3 from "../assets/sounds/fire_three.mp3"
+
+import ForestSound1 from "../assets/sounds/forest_one.mp3"
+import ForestSound2 from "../assets/sounds/forest_two.mp3"
+import ForestSound3 from "../assets/sounds/forest_three.mp3"
 
 
 var Sound = require("react-native-sound");
 
-const sounds = [
-    {
-      title:"mp3 in bundle",
-      url: RainSound1,
-      basePath: Sound.MAIN_BUNDLE
-    },
-    {
-      title:"mp3 for fire1",
-      url: FireSound1,
-      basePath: Sound.MAIN_BUNDLE
-    },
-    {
-      title:"mp3 for fire2",
-      url: FireSound2,
-      basePath: Sound.MAIN_BUNDLE
-    },
-    {
-      title:"mp3 for fire2",
-      url: FireSound3,
-      basePath: Sound.MAIN_BUNDLE
-    },
-  ]
-
   var rain1 = new Sound(RainSound1, Sound.MAIN_BUNDLE, (error) => {
+    if (error) {
+      console.warn("failed to load the sound", error);
+      return;
+    }
+    console.warn("it loaded")
+    rain1.play((success) => {
+      if (success) {
+        console.warn("success")
+      }
+      else {
+        console.warn("it fail")
+      }
+    })
+  })
+
+  var rain2 = new Sound(RainSound2, Sound.MAIN_BUNDLE, (error) => {
+    if (error) {
+      console.warn("failed to load the sound", error);
+      return;
+    }
+    console.warn("it loaded")
+    rain1.play((success) => {
+      if (success) {
+        console.warn("success")
+      }
+      else {
+        console.warn("it fail")
+      }
+    })
+  })
+
+  var rain3 = new Sound(RainSound3, Sound.MAIN_BUNDLE, (error) => {
     if (error) {
       console.warn("failed to load the sound", error);
       return;
@@ -92,4 +108,51 @@ const sounds = [
     })
   })
 
-  export {rain1, fire1, fire2, fire3}
+  var forest1 = new Sound(ForestSound1, Sound.MAIN_BUNDLE, (error) => {
+    if (error) {
+      console.warn("failed to load the sound", error);
+      return;
+    }
+    console.warn("it loaded")
+    forest1.play((success) => {
+      if (success) {
+        console.warn("success")
+      }
+      else {
+        console.warn("it fail")
+      }
+    })
+  })
+  
+  var forest2 = new Sound(ForestSound2, Sound.MAIN_BUNDLE, (error) => {
+    if (error) {
+      console.warn("failed to load the sound", error);
+      return;
+    }
+    console.warn("it loaded")
+    forest2.play((success) => {
+      if (success) {
+        console.warn("success")
+      }
+      else {
+        console.warn("it fail")
+      }
+    })
+  })
+  
+  var forest3 = new Sound(ForestSound3, Sound.MAIN_BUNDLE, (error) => {
+    if (error) {
+      console.warn("failed to load the sound", error);
+    }
+    console.warn("it loaded")
+    forest3.play((success) => {
+      if (success) {
+        console.warn("success")
+      }
+      else {
+        console.warn("it fail")
+      }
+    })
+  })
+
+  export {rain1, rain2, rain3, fire1, fire2, fire3, forest1, forest2, forest3}
