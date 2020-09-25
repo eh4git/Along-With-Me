@@ -109,7 +109,7 @@ class PrincessComponent extends Component {
 
             <Highlighter
               highlightStyle={{backgroundColor: 'yellow'}}
-              searchWords={['fire', 'grate']}
+              searchWords={['fire', ' rain', ' forest']}
               textToHighlight={story}
               onPressHighlightedText={this.playSound}
               onPressNormalText={this.stopSound}
