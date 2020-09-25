@@ -17,12 +17,18 @@ import Puppy from '../../assets/Puppy.mp4';
 import Highlighter from 'react-native-highlight-words';
 import {rain1, fire1, fire2, fire3} from "../../utils/sounds"
 
-let story = `I could not hope to get a lodging under a roof, and sought it in the wood I have before alluded to. But my night was wretched, my rest broken: the ground was damp, the air cold: besides, intruders passed near me more than once, and I had again and again to change my quarters; no sense of safety or tranquillity befriended me. Towards morning it rained; the whole of the following day was wet. Do not ask me, reader, to give a minute account of that day; as before, I sought work; as before, I was repulsed; as before, I starved; but once did food pass my lips. At the door of a cottage I saw a little girl about to throw a mess of cold porridge into a pig trough. "Will you give me that?" I asked.
-She stared at me. "Mother!" she exclaimed, "there is a woman wants me to give her these porridge."
-"Well lass," replied a voice within, "give it her if she's a beggar. T' pig doesn't want it."
-The girl emptied the stiffened mould into my hand, and I devoured it ravenously.
-As the wet twilight deepened, I stopped in a solitary bridle-path, which I had been pursuing an hour or more.
-"My strength is quite failing me," I said in a soliloquy. "I feel I cannot go much farther. Shall I be an outcast again this night? While the rain descends so, must I lay my head on the cold, drenched ground? I fear I cannot do otherwise: for who will receive me? But it will be very dreadful, with this feeling of hunger, faintness, chill, and this sense of desolation — this total prostration of hope. In all likelihood, though, I should die before morning. And why cannot I reconcile myself to the prospect of death? Why do I struggle to retain a valueless life? Because I know, or believe, Mr. Rochester is living: and then, to die of want and cold is a fate to which nature cannot submit passively. Oh, Providence! sustain me a little longer! Aid! — direct me!"`;
+let story = `
+    I could not hope to get a lodging under a roof, and sought it in the wood I have before alluded to. But my night was wretched, my rest broken: the ground was damp, the air cold: besides, intruders passed near me more than once, and I had again and again to change my quarters; no sense of safety or tranquillity befriended me. Towards morning it rained; the whole of the following day was wet. Do not ask me, reader, to give a minute account of that day; as before, I sought work; as before, I was repulsed; as before, I starved; but once did food pass my lips. At the door of a cottage I saw a little girl about to throw a mess of cold porridge into a pig trough. 
+    
+    "Will you give me that?" I asked.
+
+    She stared at me. "Mother!" she exclaimed, "there is a woman wants me to give her these porridge."
+
+    "Well lass," replied a voice within, "give it her if she's a beggar. T' pig doesn't want it."
+
+    The girl emptied the stiffened mould into my hand, and I devoured it ravenously. As the wet twilight deepened, I stopped in a solitary bridle-path, which I had been pursuing an hour or more.
+    
+    "My strength is quite failing me," I said in a soliloquy. "I feel I cannot go much farther. Shall I be an outcast again this night? While the rain descends so, must I lay my head on the cold, drenched ground? I fear I cannot do otherwise: for who will receive me? But it will be very dreadful, with this feeling of hunger, faintness, chill, and this sense of desolation — this total prostration of hope. In all likelihood, though, I should die before morning. And why cannot I reconcile myself to the prospect of death? Why do I struggle to retain a valueless life? Because I know, or believe, Mr. Rochester is living: and then, to die of want and cold is a fate to which nature cannot submit passively. Oh, Providence! sustain me a little longer! Aid! — direct me!"`;
 let keyword = "fire";
 let backgroundColorHighlight;
 
