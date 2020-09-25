@@ -35,9 +35,9 @@ firebase.initializeApp(config);
 
 //volume control
 rain1.setVolume(50);
-fire1.setVolume(100)
-fire2.setVolume(50)
-fire3.setVolume(100)
+fire1.setVolume(.01)
+fire2.setVolume(1)
+fire3.setVolume(.25)
 
 class SettingsComponent extends Component {
   state = {
@@ -45,7 +45,8 @@ class SettingsComponent extends Component {
     forest: 'pick your choice',
     fire: 'Fire1',
     settings: [],
-    setting: 'whynnno'
+    setting: 'whynnno',
+    sliderVol: .25
   }
   //plz work
   componentDidMount() {
@@ -102,25 +103,25 @@ class SettingsComponent extends Component {
     // console.warn(this.state.fire)
     switch(this.state.fire) {
       case "Fire1":
-        fire1.play();
+        fire1.play().setVolume(this.state.sliderVol);
         break;
       case "Fire2":
-        fire2.play();
+        fire2.play().setVolume(this.state.sliderVol);
         break;
       case "Fire3":
-        fire3.play();
+        fire3.play().setVolume(this.state.sliderVol);
         break;
       case "FireRandom":
         let FireRandomInteger = Math.floor(Math.random() * 3) + 1
           switch (FireRandomInteger) {
             case 1: 
-              fire1.play();
+              fire1.play().setVolume(this.state.sliderVol);
               break;
             case 2: 
-              fire2.play();
+              fire2.play().setVolume(this.state.sliderVol);
               break;
             case 3: 
-              fire3.play();
+              fire3.play().setVolume(this.state.sliderVol);
               break;
             default: 
               break;
@@ -240,10 +241,12 @@ class SettingsComponent extends Component {
             </Text>
             <Slider
               style={{width: 200, height: 40}}
-              maximumValue={100}
+              maximumValue={1}
               minimumValue={0}
-              step={1}
-              value={50}
+              step={.25}
+              value={.5}
+              onValueChange={ itemValue =>
+                this.setState({sliderVol: itemValue})}
             />
             <Button
                 onPress={this.saveSettings.bind(this)}
