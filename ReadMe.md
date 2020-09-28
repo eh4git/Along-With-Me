@@ -7,7 +7,7 @@
 
 <img src="./AlongWithMeApp/src/assets/images/homepage.png"
      alt="Log-in Page"
-     style="margin-right: 10px; height: 200px;"/>
+     style="margin-right: 10px; height: 5px;"/>
 
 
 ## Description
