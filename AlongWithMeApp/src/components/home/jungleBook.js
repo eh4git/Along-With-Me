@@ -99,7 +99,7 @@ class JungleComponent extends Component {
 
             <Highlighter
               highlightStyle={{backgroundColor: 'orange'}}
-              searchWords={[' forest', ' rain ', ' fire ']}
+              searchWords={[/\b\Forest\b/gi, /\b\Rain\b/gi, /\b\Fire\b/gi]}
               textToHighlight={story}
               onPressHighlightedText={this.playSound}
               onPressNormalText={this.stopSound}
