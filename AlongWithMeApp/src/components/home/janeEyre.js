@@ -104,7 +104,7 @@ class JaneComponent extends Component {
 
             <Highlighter
               highlightStyle={{backgroundColor: 'lightblue'}}
-              searchWords={[' rain ']}
+              searchWords={[/\b\Rain\b/gi]}
               textToHighlight={story}
               onPressHighlightedText={this.playSound}
               onPressNormalText={this.stopSound}
