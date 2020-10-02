@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import Slider from "@react-native-community/slider"
 import { Picker } from "@react-native-community/picker"
 import {rain1, fire1, fire2, fire3, rain2, rain3, forest1, forest2, forest3} from "../../utils/sounds"
-import * as firebase from "firebase";
+// import * as firebase from "firebase";
+import {Auth, firebase} from "../../App";
 
 
 // var Sound = require("react-native-sound");
@@ -21,17 +22,6 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 
-const config = {
-  apiKey: "AIzaSyC8aDxXuCMwppO6ne9IPSwxuGn-ikFUURE",
-  authDomain: "alongwithme-22328.firebaseapp.com",
-  databaseURL: "https://alongwithme-22328.firebaseio.com",
-  projectId: "alongwithme-22328",
-  storageBucket: "alongwithme-22328.appspot.com",
-  messagingSenderId: "455176172872",
-  appId: "1:455176172872:web:0f95df233b7f92e359ef7d",
-  measurementId: "G-W2GYKM516W"
-}; 
-firebase.initializeApp(config);
 
 //volume control
 rain1.setVolume(50);
