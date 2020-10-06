@@ -37,11 +37,9 @@ const headerConf = {
         },
         headerTintColor: 'white',
         headerTitle: Logo,
-        headerRight: () => (
-            <Button title="logOut" onPress={() => {
-                console.warn("logOut")
-            }} color="#D9C0AB" />
-        )
+        // headerRight: () => (
+        //     <Button title="logOut" onPress={()=> navigate("Auth")} color="#D9C0AB" />
+        // )
     }
 }
 

@@ -17,6 +17,10 @@ class AuthComponent extends Component {
     this.props.navigation.navigate('App')
   }
 
+  goBack = ()=>{
+    this.props.navigation.navigate('Auth')
+  }
+
   componentDidMount(){
     getTokens((res)=>{
       if(res[0][1]===null){
@@ -47,7 +51,7 @@ class AuthComponent extends Component {
         <ScrollView style={styles.container}>
           <View>
             <AuthLogo />
-            <AuthForm goNext={this.goNext}/>
+            <AuthForm goNext={this.goNext} goBack={this.goBack}/>
           </View>
         </ScrollView>
       );

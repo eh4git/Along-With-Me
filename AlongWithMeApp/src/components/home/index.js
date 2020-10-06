@@ -77,6 +77,13 @@ class HomeComponent extends Component {
                   >
                     <Text style={styles.textStyle}>Submit</Text>
                 </TouchableHighlight>
+                
+                <TouchableHighlight
+                    style={styles.openButton}
+                    onPress={()=> this.props.navigation.navigate("Auth")}
+                  >
+                    <Text style={styles.textStyle}>LogOut</Text>
+                </TouchableHighlight>
               </View>
 
       {/* <TouchableHighlight

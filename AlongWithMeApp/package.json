@@ -16,7 +16,6 @@
     "@react-native-community/slider": "^3.0.3",
     "@react-native-firebase/app": "^8.4.5",
     "@react-native-firebase/auth": "^9.2.7",
-    "@react-native-firebase/database": "^7.5.11",
     "axios": "^0.19.2",
     "firebase": "^7.20.0",
     "install": "^0.13.0",
