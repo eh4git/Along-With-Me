@@ -6,6 +6,8 @@ import {connect} from 'react-redux';
 import {signUp, signIn} from '../../store/actions/user_actions';
 import {bindActionCreators} from 'redux';
 import { setTokens} from '../../utils/misc'
+import {  Auth } from "../../App";
+import {  SignInUser,SignUpUser,SignOutUser} from "./API";
 
  class AuthForm extends Component {
   state = {
@@ -43,17 +45,19 @@ import { setTokens} from '../../utils/misc'
     },
   };
 
-  manageAccess = ()=> {
-      if(!this.props.User.auth.uid){
-          this.setState({hasErrors:true})
-      }else{
-          setTokens(this.props.User.auth,()=>{
-            this.setState({hasErrors:false})
-            this.props.goNext()
-          })
+  // manageAccess = ()=> {
+  //     if(!this.props.User.auth.uid){
+  //         this.setState({hasErrors:true})
+  //     }else{
+  //         setTokens(this.props.User.auth,()=>{
+  //           this.setState({hasErrors:false})
+  //           this.props.goNext()
+  //         })
 
-      }
-  }
+  //     }
+
+      
+  // }
 
   submitUser = () => {
     let isFormValid = true;
@@ -79,13 +83,13 @@ import { setTokens} from '../../utils/misc'
 
     if (isFormValid) {
       if (this.state.type === 'Login') {
-        this.props.signIn(formToSubmit).then(()=>{
-            this.manageAccess()
-        });
+        
+            this.signUserIn()
+       
       } else {
-        this.props.signUp(formToSubmit).then(()=>{
-            this.manageAccess()
-        });
+       
+            this.signUserUp()
+        
       }
     } else {
       this.setState({
@@ -145,6 +149,40 @@ import { setTokens} from '../../utils/misc'
     });
   };
 
+   signOut = () => {
+    SignOutUser()
+    .then((data) => {
+      alert(data);
+
+    })
+    .catch((err) => {
+      alert(err);
+    });
+  };
+
+  signUserIn = () => {
+    SignInUser(this.state.form.email.value, this.state.form.password.value)
+      .then((data) => {
+        alert(data);
+        this.props.goNext()
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  };
+
+  signUserUp = () => {
+    SignUpUser(this.state.form.email.value, this.state.form.password.value)
+      .then((data) => {
+        alert(data);
+        this.props.goNext()
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  };
+
+
   render() {
     return (
       <View>
@@ -181,13 +219,13 @@ import { setTokens} from '../../utils/misc'
               color="#D9C0AB"
             />
           </View>
-          <View style={styles.button}>
+          {/* <View style={styles.button}>
             <Button
               title="I'll do it later"
               onPress={() => this.props.goNext()}
               color="#D9C0AB"
             />
-          </View>
+          </View> */}
         </View>
       </View>
     );
