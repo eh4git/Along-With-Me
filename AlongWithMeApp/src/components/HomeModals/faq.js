@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     elevation: 2,
-    width: '100%',
+    width: 100,
     height: 40
   },
   textStyle: {

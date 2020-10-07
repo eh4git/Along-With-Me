@@ -70,7 +70,7 @@ export default class WorksComponent extends Component {
             this.setModalVisible(true);
           }}
         >
-          <Text style={styles.textStyle}>How This Works</Text>
+          <Text style={styles.textStyle}>How To</Text>
         </TouchableHighlight>
       </View>
      
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     elevation: 2,
-    width: '100%',
+    width: 100,
     height: 40
   },
   textStyle: {

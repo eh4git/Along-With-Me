@@ -47,6 +47,13 @@ class HomeComponent extends Component {
                   <Faq />
                   <Works />
                   <Contact />
+
+                  <TouchableHighlight
+                    style={styles.logoutBtn}
+                    onPress={()=> this.props.navigation.navigate("Auth")}
+                  >
+                    <Text style={styles.textStyle}>Log Out</Text>
+                  </TouchableHighlight>
                 </View>
 
                 <Text
@@ -78,12 +85,12 @@ class HomeComponent extends Component {
                     <Text style={styles.textStyle}>Submit</Text>
                 </TouchableHighlight>
                 
-                <TouchableHighlight
-                    style={styles.openButton}
+                {/* <TouchableHighlight
+                    style={styles.logoutBtn}
                     onPress={()=> this.props.navigation.navigate("Auth")}
                   >
                     <Text style={styles.textStyle}>LogOut</Text>
-                </TouchableHighlight>
+                </TouchableHighlight> */}
               </View>
 
       {/* <TouchableHighlight
@@ -152,6 +159,14 @@ const styles = StyleSheet.create({
     elevation: 2,
     width: '35%',
     alignItems: "center"
+  },
+  logoutBtn: {
+    backgroundColor: "#A25B2C",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+    width: 90,
+    // bottom: -240
   },
   textStyle: {
     color: "white",
