@@ -4,6 +4,7 @@ import Slider from "@react-native-community/slider"
 import { Picker } from "@react-native-community/picker"
 import {rain1, fire1, fire2, fire3, rain2, rain3, forest1, forest2, forest3} from "../../utils/sounds"
 import * as firebase from "firebase";
+import Ionicons from 'react-native-vector-icons/Ionicons'
 // import {Auth, firebase} from "../../App";
 
 
@@ -18,9 +19,11 @@ import {
   Image,
   TouchableOpacity,
   Button,
-  Platform
+  Platform,
+  PickerIOSComponent
 } from 'react-native';
 import { connect } from 'react-redux';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC8aDxXuCMwppO6ne9IPSwxuGn-ikFUURE",
@@ -257,28 +260,51 @@ class SettingsComponent extends Component {
     return (
       <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
         <View>
-            <Text h1>
-             Settings - Your settings will not save if you are not logged in!
-            </Text>
+            
             <Text h2>
               {/* Your Sounds */}
-              {this.state.rainSettings}
+              {/* {this.state.rainSettings}
               {this.state.fireSettings}
               {this.state.forestSettings}
-              {this.state.volumeSettings}
+              {this.state.volumeSettings} */}
             </Text>
-            <Text>Rain
-              <Button
+            <Text
+            style={styles.soundSelection}>Rain&nbsp;
+             {/* <TouchableHighlight
+                    style={styles.logoutBtn}
+                    onPress={()=> this.props.navigation.navigate("Auth")}
+                  >
+                    <Text style={styles.textStyle}>Log Out</Text>
+                  </TouchableHighlight> */}
+            <TouchableHighlight
                 onPress={this.playRainSound.bind(this)}
-                title= ":sound:"
+                style={styles.playBtns}
+                color="#A36F4C"
+                size={15}
                 accessibilityLabel="Button to play rain sound"
-                />
-                <Button
-                onPress={this.stopRainSound}
-                title=":stopsound:"
-                accessibilityLabel="Button to stop fire sound"
+                >
+                <Ionicons 
+                name="volume-low-outline" 
+                size={25} 
+                color="white"
               />
+                </TouchableHighlight>
+                &nbsp;
+                <TouchableHighlight
+                style={styles.stopBtns}
+                color="#7C2717"
+                onPress={this.stopRainSound}
+                title="stop"
+                accessibilityLabel="Button to stop fire sound"
+              >
+                <Ionicons 
+                name="volume-mute-outline" 
+                size={25} 
+                color="white"
+              />
+              </TouchableHighlight>
             </Text>
+            
             <Picker
               selectedValue={this.state.rain}
               style={{height: 50, width: 150}, styles.pickers}
@@ -291,17 +317,36 @@ class SettingsComponent extends Component {
               <Picker.Item label="Rain 3" value="rain3" />
               <Picker.Item label="Randomize" value="Random" />
             </Picker>
-            <Text>Forest
-            <Button
+            <Text
+            style={styles.soundSelection}>Forest&nbsp;
+            <TouchableHighlight
                 onPress={this.playForestSound.bind(this)}
-                title= ":sound:"
+                style={styles.playBtns}
+                color="#A36F4C"
+                size={15}
                 accessibilityLabel="Button to play forest sound"
-                />
-                <Button
-                onPress={this.stopForestSound}
-                title=":stopsound:"
-                accessibilityLabel="Button to stop forest sound"
+                >
+                <Ionicons 
+                name="volume-low-outline" 
+                size={25} 
+                color="white"
               />
+                </TouchableHighlight>
+                &nbsp;
+                <TouchableHighlight
+                style={styles.stopBtns}
+                color="#7C2717"
+                onPress={this.stopForestSound}
+                title="stop"
+                accessibilityLabel="Button to stop forest sound"
+              >
+                <Ionicons 
+                name="volume-mute-outline" 
+                size={25} 
+                color="white"
+              />
+              </TouchableHighlight>
+            
             </Text>
             <Picker
               selectedValue={this.state.forest}
@@ -314,17 +359,35 @@ class SettingsComponent extends Component {
               <Picker.Item label="Forest 3" value="forest3" />
               <Picker.Item label="Randomize" value="Random" />
             </Picker>
-            <Text>Fire
-              <Button
+            <Text
+            style={styles.soundSelection}>Fire&nbsp;
+              <TouchableHighlight
                 onPress={this.playFireSound.bind(this)}
-                title=":sound:"
+                style={styles.playBtns}
+                color="#A36F4C"
+                size={15}
                 accessibilityLabel="Button to play fire sound"
+                >
+                <Ionicons 
+                name="volume-low-outline" 
+                size={25} 
+                color="white"
               />
-              <Button
+                </TouchableHighlight>
+                &nbsp;
+                <TouchableHighlight
+                style={styles.stopBtns}
+                color="#7C2717"
                 onPress={this.stopFireSound}
-                title=":stopsound:"
+                title="stop"
                 accessibilityLabel="Button to stop fire sound"
+              >
+                <Ionicons 
+                name="volume-mute-outline" 
+                size={25} 
+                color="white"
               />
+              </TouchableHighlight>
             </Text>
             <Picker
               selectedValue={this.state.fire}
@@ -349,14 +412,23 @@ class SettingsComponent extends Component {
               onValueChange={ itemValue =>
                 this.setState({sliderVol: itemValue})}
             />
-            <Button
+
+<TouchableHighlight
+                style={styles.saveBtn}
+                color="#7C2717"
                 onPress={this.saveSettings.bind(this)}
-                title="Save Settings"
-                accessibilityLabel="Button to save your settings"
-              />
-        <Text>
+                title="stop"
+                accessibilityLabel="Button to stop fire sound"
+              >
+                <Text h2>
+              Save Settings
+            </Text>
+             
+              </TouchableHighlight>
+            
+        {/* <Text>
           Sound Credit to Zapsplat
-        </Text>
+        </Text> */}
 
         
         </View>
@@ -371,6 +443,29 @@ const styles = StyleSheet.create({
       margin: 1,
     }
   })
+  },
+  playBtns: {
+    backgroundColor: "#A36F4C",
+    color: "pink",
+    width: '50%',
+  },
+  stopBtns: {
+    backgroundColor: "#7C2717",
+    color: "pink",
+    width: '50%',
+  },
+  saveBtn: {
+    backgroundColor: "#A25B2C",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+    marginLeft: '30%',
+    marginTop: 30,
+    width: 110,
+  },
+  soundSelection: {
+    fontSize: 40,
+
   }
 });
 function mapStateToProps(state) {
