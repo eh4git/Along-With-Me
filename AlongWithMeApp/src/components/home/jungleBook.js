@@ -5,6 +5,7 @@ import {
   View,
   Text,
   ActivityIndicator,
+  ImageBackground,
   Button,
   TouchableHighlight
 } from 'react-native';
@@ -26,6 +27,8 @@ let story = `
 
 let keyword = "fire";
 let backgroundColorHighlight;
+
+import vines from "../../assets/images/jungle1.png"
 
 class JungleComponent extends Component {
 
@@ -95,8 +98,14 @@ class JungleComponent extends Component {
     const params = this.props.navigation.state.params;
 
     return (
-      <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
-        <View>
+      
+         
+        <View> 
+          <ImageBackground source={vines} style={styles.image}>
+          <ScrollView style={
+      
+        styles.scroll
+        }>
           {/* <Button
             title="Find Keywords"
             onPress={this.replaceTextFunction}
@@ -113,16 +122,31 @@ class JungleComponent extends Component {
            
           </Text>
 
-        </View>
-
       </ScrollView>
+      </ImageBackground>
+
+        </View>
+        
     )
   }
 }
 const styles = StyleSheet.create({
   textContainer: {
-    marginLeft: 5,
-    marginRight: 5
+    marginLeft: 30,
+    marginRight: 30,
+    top: 0,
+    bottom:0
+  },
+  image: {
+    resizeMode: "cover",
+    position: "absolute",
+    height: 640,
+    flex: 1,
+   top:-14
+  },
+  scroll: {
+    marginBottom: 50,
+    marginTop: 50
   }
 });
 
