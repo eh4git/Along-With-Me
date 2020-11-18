@@ -15,7 +15,7 @@ import { autoSignIn } from '../../store/actions/user_actions';
 import { getTokens, setTokens } from '../../utils/misc';
 import Puppy from '../../assets/Puppy.mp4';
 import Highlighter from 'react-native-highlight-words';
-import {rain1, fire1, fire2, fire3} from "../../utils/sounds"
+import {rain1, fire1, fire2, fire3, forest1} from "../../utils/sounds"
 
 let story = `
     He loved better than anything else to go with Bagheera into the dark warm heart of the forest, to sleep all through the drowsy day, and at night see how Bagheera did his killing. Bagheera killed right and left as he felt hungry, and so did Mowgli—with one exception. As soon as he was old enough to understand things, Bagheera told him that he must never touch cattle because he had been bought into the Pack at the price of a bull’s life. “All the jungle is thine,” said Bagheera, “and thou canst kill everything that thou art strong enough to kill; but for the sake of the bull that bought thee thou must never kill or eat any cattle young or old. That is the Law of the Jungle.” Mowgli obeyed faithfully.
@@ -72,24 +72,30 @@ class JungleComponent extends Component {
   playSound() {
     console.warn(this);
     // console.warn(this.children)
-    if (this.children === ' fire ') {
+    if (this.children === 'fire') {
       console.warn("ITS A FIRE");
       fire1.play();
     }
-    else if (this.children === 'grate') {
-      console.warn("ITS A GRATE")
+    else if (this.children === 'rain') {
+      rain1.play();
+    }
+    else if (this.children === 'forest') {
+      forest1.play();
     }
   }
 
   stopSound() {
-    fire1.stop()
+    fire1.stop();
+    rain1.stop();
+    forest1.stop();
+
   }
 
   render() {
     const params = this.props.navigation.state.params;
 
     return (
-      <ScrollView style={{ backgroundColo: '#F0F0F0' }}>
+      <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
         <View>
           {/* <Button
             title="Find Keywords"

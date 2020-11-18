@@ -75,11 +75,11 @@ class JaneComponent extends Component {
   // }
 
   playSound() {
-    console.warn(this);
+    // console.warn(this);
     // console.warn(this.children)
-    if (this.children === ' rain ') {
+    if (this.children === 'rain') {
       console.warn("ITS RAIN");
-      fire1.play();
+      rain1.play();
     }
     else if (this.children === 'grate') {
       console.warn("ITS A GRATE")
@@ -87,14 +87,14 @@ class JaneComponent extends Component {
   }
 
   stopSound() {
-    fire1.stop()
+    rain1.stop()
   }
 
   render() {
     const params = this.props.navigation.state.params;
 
     return (
-      <ScrollView style={{ backgroundColo: '#F0F0F0' }}>
+      <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
         <View>
           {/* <Button
             title="Find Keywords"

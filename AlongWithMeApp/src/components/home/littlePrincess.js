@@ -99,7 +99,7 @@ class PrincessComponent extends Component {
     const params = this.props.navigation.state.params;
 
     return (
-      <ScrollView style={{ backgroundColo: '#F0F0F0' }}>
+      <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
         <View>
           {/* <Button
             title="Find Keywords"
