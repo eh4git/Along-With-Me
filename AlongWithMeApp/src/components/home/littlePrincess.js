@@ -6,7 +6,8 @@ import {
   Text,
   ActivityIndicator,
   Button,
-  TouchableHighlight
+  TouchableHighlight,
+  ImageBackground
 } from 'react-native';
 import Video from 'react-native-video';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
@@ -15,10 +16,10 @@ import { autoSignIn } from '../../store/actions/user_actions';
 import { getTokens, setTokens } from '../../utils/misc';
 import Puppy from '../../assets/Puppy.mp4';
 import Highlighter from 'react-native-highlight-words';
-import {rain1, fire1, fire2, fire3} from "../../utils/sounds"
+import { rain1, fire1, fire2, fire3 } from "../../utils/sounds"
+import background from "../../assets/images/littlePrincessBackground.jpg"
 
-let story = `
-    Whatsoever she meant, Ermengarde was sure it was something delightfully exciting. So, quite thrilled with expectation, she followed her on tiptoe along the passage. They made not the least noise until they reached the door. Then Sara suddenly turned the handle, and threw it wide open. Its opening revealed the room quite neat and quiet, a fire gently burning in the grate, and a wonderful doll sitting in a chair by it, apparently reading a book. 
+let story = `Whatsoever she meant, Ermengarde was sure it was something delightfully exciting. So, quite thrilled with expectation, she followed her on tiptoe along the passage. They made not the least noise until they reached the door. Then Sara suddenly turned the handle, and threw it wide open. Its opening revealed the room quite neat and quiet, a fire gently burning in the grate, and a wonderful doll sitting in a chair by it, apparently reading a book. 
 
     “Oh, she got back to her seat before we could see her!” Sara explained. 
   
@@ -99,34 +100,50 @@ class PrincessComponent extends Component {
     const params = this.props.navigation.state.params;
 
     return (
-      <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
-        <View>
-          {/* <Button
+      <View style={styles.main}>
+        <ImageBackground source={background} style={styles.background} >
+          <ScrollView style={styles.scroll} >
+
+            {/* <Button
             title="Find Keywords"
             onPress={this.replaceTextFunction}
           /> */}
-          <Text style={styles.textContainer}>
+            <Text style={styles.textContainer}>
 
-            <Highlighter
-              highlightStyle={{backgroundColor: 'yellow'}}
-              searchWords={[/\b\Fire\b/gi, /\b\Rain\b/gi, /\b\Forest\b/gi]}
-              textToHighlight={story}
-              onPressHighlightedText={this.playSound}
-              onPressNormalText={this.stopSound}
-            />
-           
-          </Text>
+              <Highlighter
+                highlightStyle={{ backgroundColor: 'yellow' }}
+                searchWords={[/\b\Fire\b/gi, /\b\Rain\b/gi, /\b\Forest\b/gi]}
+                textToHighlight={story}
+                onPressHighlightedText={this.playSound}
+                onPressNormalText={this.stopSound}
+              />
 
-        </View>
+            </Text>
 
-      </ScrollView>
+          </ScrollView>
+        </ImageBackground>
+      </View>
     )
   }
 }
 const styles = StyleSheet.create({
+  background: {
+    resizeMode: "cover",
+    position: "absolute",
+    height: 560,
+    flex: 1,
+    // margin: 5,
+    
+  },
+  scroll: {
+    marginTop: 100,
+    marginBottom: 70
+  },
   textContainer: {
-    marginLeft: 5,
-    marginRight: 5
+    marginLeft: 25,
+    marginRight: 25
+  //  marginTop: 75,
+  //  marginBottom: 70
   }
 });
 
