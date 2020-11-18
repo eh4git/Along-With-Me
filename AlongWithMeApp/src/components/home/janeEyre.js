@@ -6,7 +6,8 @@ import {
   Text,
   ActivityIndicator,
   Button,
-  TouchableHighlight
+  TouchableHighlight,
+  ImageBackground
 } from 'react-native';
 import Video from 'react-native-video';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
@@ -16,6 +17,8 @@ import { getTokens, setTokens } from '../../utils/misc';
 import Puppy from '../../assets/Puppy.mp4';
 import Highlighter from 'react-native-highlight-words';
 import {rain1, fire1, fire2, fire3} from "../../utils/sounds"
+
+import jane_border from "../../assets/images/jane_border.jpg"
 
 let story = `
     I could not hope to get a lodging under a roof, and sought it in the wood I have before alluded to. But my night was wretched, my rest broken: the ground was damp, the air cold: besides, intruders passed near me more than once, and I had again and again to change my quarters; no sense of safety or tranquillity befriended me. Towards morning it rained; the whole of the following day was wet. Do not ask me, reader, to give a minute account of that day; as before, I sought work; as before, I was repulsed; as before, I starved; but once did food pass my lips. At the door of a cottage I saw a little girl about to throw a mess of cold porridge into a pig trough. 
@@ -94,34 +97,44 @@ class JaneComponent extends Component {
     const params = this.props.navigation.state.params;
 
     return (
-      <ScrollView style={{ backgroundColor: '#F0F0F0' }}>
-        <View>
-          {/* <Button
-            title="Find Keywords"
-            onPress={this.replaceTextFunction}
-          /> */}
-          <Text style={styles.textContainer}>
+      <View>
+        <ImageBackground source={jane_border} style={styles.image}>
+          <ScrollView style={styles.scrollStyle}>
+              {/* <Button
+                title="Find Keywords"
+                onPress={this.replaceTextFunction}
+              /> */}
+            <Text style={styles.textContainer}>
 
-            <Highlighter
-              highlightStyle={{backgroundColor: 'lightblue'}}
-              searchWords={[/\b\Rain\b/gi]}
-              textToHighlight={story}
-              onPressHighlightedText={this.playSound}
-              onPressNormalText={this.stopSound}
-            />
-           
-          </Text>
-
-        </View>
-
-      </ScrollView>
+                <Highlighter
+                  highlightStyle={{backgroundColor: 'lightblue'}}
+                  searchWords={[/\b\Rain\b/gi]}
+                  textToHighlight={story}
+                  onPressHighlightedText={this.playSound}
+                  onPressNormalText={this.stopSound}
+                />
+              
+            </Text>
+          </ScrollView>
+        </ImageBackground>
+      </View>
     )
   }
 }
 const styles = StyleSheet.create({
+  scrollStyle: {
+    marginTop: 50,
+    marginBottom: 50
+  },
   textContainer: {
-    marginLeft: 5,
-    marginRight: 5
+    marginLeft: 20,
+    marginRight: 20
+  },
+  image: {
+    resizeMode: "cover",
+    position: "absolute",
+    height: 560,
+    flex: 1,
   }
 });
 
