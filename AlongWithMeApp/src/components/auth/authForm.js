@@ -12,6 +12,7 @@ import {  SignInUser,SignUpUser,SignOutUser} from "./API";
  class AuthForm extends Component {
   state = {
     type: 'Login',
+    user: 'party',
     action: 'Login',
     actionMode: 'I want to register',
     hasErrors: false,
@@ -45,19 +46,22 @@ import {  SignInUser,SignUpUser,SignOutUser} from "./API";
     },
   };
 
-  // manageAccess = ()=> {
-  //     if(!this.props.User.auth.uid){
-  //         this.setState({hasErrors:true})
-  //     }else{
-  //         setTokens(this.props.User.auth,()=>{
-  //           this.setState({hasErrors:false})
-  //           this.props.goNext()
-  //         })
+  //this will use data from the resolve
+  manageAccess = (data)=> {
+    console.warn(data)
+      if(!data){
+          this.setState({hasErrors:true})
+      }else{
+        //Auth()._user
+          setTokens(data,()=>{
+            this.setState({hasErrors:false})
+            this.props.goNext()
+          })
 
-  //     }
+      }
 
       
-  // }
+  }
 
   submitUser = () => {
     let isFormValid = true;
@@ -81,22 +85,35 @@ import {  SignInUser,SignUpUser,SignOutUser} from "./API";
     }
 
 
-    if (isFormValid) {
-      if (this.state.type === 'Login') {
+  //   if (isFormValid) {
+  //     if (this.state.type === 'Login') {
         
-            this.signUserIn()
+  //           this.signUserIn()
        
-      } else {
+  //     } else {
        
-            this.signUserUp()
+  //           this.signUserUp()
         
-      }
+  //     }
+  //   } else {
+  //     this.setState({
+  //       hasErrors: true,
+  //     });
+  //   }
+  // };
+
+  if (isFormValid) {
+    if (this.state.type === 'Login') {
+      this.signUserIn()
     } else {
-      this.setState({
-        hasErrors: true,
-      });
+      this.signUserUp()
     }
-  };
+  } else {
+    this.setState({
+      hasErrors: true,
+    });
+  }
+};
 
   changeFormType = () => {
     const type = this.state.type;
@@ -149,31 +166,41 @@ import {  SignInUser,SignUpUser,SignOutUser} from "./API";
     });
   };
 
+  //ANNA data contains resolve from API.js
    signOut = () => {
     SignOutUser()
     .then((data) => {
+      console.warn(data)
+      this.setState({user: data})
       alert(data);
 
     })
     .catch((err) => {
       alert(err);
     });
+    
   };
+  //ANNA async manage access???
 
   signUserIn = () => {
     SignInUser(this.state.form.email.value, this.state.form.password.value)
       .then((data) => {
+        console.warn(data)
+        this.setState({user: data})
         alert(data);
+        this.manageAccess(this.state.user)
         this.props.goNext()
       })
       .catch((err) => {
         alert(err);
       });
+      // this.manageAccess(this.state.user)
   };
 
   signUserUp = () => {
     SignUpUser(this.state.form.email.value, this.state.form.password.value)
       .then((data) => {
+        console.warn(data)
         alert(data);
         this.props.goNext()
       })
