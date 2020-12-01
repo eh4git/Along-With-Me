@@ -116,3 +116,32 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps)(GameArticleComponent);
+
+// {"_app": 
+//   {"_automaticDataCollectionEnabled": true,
+//    "_deleteApp": [Function bound deleteApp],
+//     "_deleted": false, 
+//     "_initialized": true, 
+//     "_name": "[DEFAULT]",
+//      "_nativeInitialized": true, "_options": {"apiKey": "AIzaSyC8aDxXuCMwppO6ne9IPSwxuGn-ikFUURE", "appId": "1:455176172872:web:0f95df233b7f92e359ef7d", "databaseURL": "https://alongwithme-22328.firebaseio.com", "gaTrackingId": null, "messagingSenderId": "455176172872", "projectId": "alongwithme-22328", "storageBucket": "alongwithme-22328.appspot.com"
+//     }
+//   },
+//       "_authResult": true, "_config": 
+      
+//       {"ModuleClass": [Function FirebaseAuthModule], "hasCustomUrlOrRegionSupport": false, "hasMultiAppSupport": true, "namespace": "auth", "nativeEvents": ["auth_state_changed", "auth_id_token_changed", "phone_auth_state_changed"], "nativeModuleName": "RNFBAuthModule", "statics": 
+
+//         {"AppleAuthProvider": [Function AppleAuthProvider], "EmailAuthProvider": [Function EmailAuthProvider], "FacebookAuthProvider": [Function FacebookAuthProvider], "GithubAuthProvider": [Function GithubAuthProvider], "GoogleAuthProvider": [Function GoogleAuthProvider], "OAuthProvider": [Function OAuthProvider], "PhoneAuthProvider": [Function PhoneAuthProvider], "PhoneAuthState": [Object], "TwitterAuthProvider": [Function TwitterAuthProvider]}, 
+        
+//         "version": "9.2.7"}, 
+        
+//         "_customUrlOrRegion": undefined, "_languageCode": null, 
+        
+//         "_nativeModule": 
+//         {"APP_LANGUAGE": 
+//         {"[DEFAULT]": null}, "APP_USER": 
+//         {"[DEFAULT]": [Object]}, "addAuthStateListener": [Function anonymous], "addIdTokenListener": [Function anonymous], "applyActionCode": [Function anonymous], "checkActionCode": [Function anonymous], "confirmPasswordReset": [Function anonymous], "confirmationResultConfirm": [Function anonymous], "createUserWithEmailAndPassword": [Function anonymous], "delete": [Function anonymous], "fetchSignInMethodsForEmail": [Function anonymous], "getConstants": [Function anonymous], "getIdToken": [Function anonymous], "getIdTokenResult": [Function anonymous], "linkWithCredential": [Function anonymous], "reauthenticateWithCredential": [Function anonymous], "reload": [Function anonymous], "removeAuthStateListener": [Function anonymous], "removeIdTokenListener": [Function anonymous], "sendEmailVerification": [Function anonymous], "sendPasswordResetEmail": [Function anonymous], "sendSignInLinkToEmail": [Function anonymous], "setAutoRetrievedSmsCodeForPhoneNumber": [Function anonymous], "setLanguageCode": [Function anonymous], "signInAnonymously": [Function anonymous], "signInWithCredential": [Function anonymous], "signInWithCustomToken": [Function anonymous], "signInWithEmailAndPassword": [Function anonymous], "signInWithEmailLink": [Function anonymous], "signInWithPhoneNumber": [Function anonymous], "signOut": [Function anonymous], "unlink": [Function anonymous], "updateEmail": [Function anonymous], "updatePassword": [Function anonymous], "updatePhoneNumber": [Function anonymous], "updateProfile": [Function anonymous], "useDeviceLanguage": [Function anonymous], "verifyBeforeUpdateEmail": [Function anonymous], "verifyPasswordResetCode": [Function anonymous], "verifyPhoneNumber": [Function anonymous]
+//       },
+        
+//         "_settings": null, "_user": 
+        
+//         {"displayName": null, "email": "anna@me.com", "emailVerified": false, "isAnonymous": false, "metadata": [Object], "phoneNumber": null, "photoURL": null, "providerData": [Array], "providerId": "firebase", "uid": "Jb6KrlnSikfWFkSUaiJeDfRDakQ2"}}
