@@ -30,7 +30,6 @@ export const setTokens = (values,cb) =>{
         ['@AlongwithmeApp@refreshToken',values.refreshToken],
         ['@AlongwithmeApp@expireToken',expiration.toString()],
         ['@AlongwithmeApp@uid',values.uid],
-
     ]).then(res => {
         cb();
     })
