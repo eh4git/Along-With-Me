@@ -34,7 +34,7 @@ const headerConf = {
     defaultNavigationOptions: {
         headerStyle: {
             backgroundColor: "#A25B2C",
-            zIndex: -1
+            // zIndex: -1
         },
         headerTintColor: 'white',
         headerTitle: Logo,
