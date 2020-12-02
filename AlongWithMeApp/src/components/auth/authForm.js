@@ -48,7 +48,7 @@ import {  SignInUser,SignUpUser,SignOutUser} from "./API";
 
   //this will use data from the resolve
   manageAccess = (data)=> {
-    console.warn(data)
+    console.warn("uid ", data)
       if(!data){
           this.setState({hasErrors:true})
       }else{
@@ -57,10 +57,7 @@ import {  SignInUser,SignUpUser,SignOutUser} from "./API";
             this.setState({hasErrors:false})
             this.props.goNext()
           })
-
-      }
-
-      
+      }   
   }
 
   submitUser = () => {
@@ -185,10 +182,10 @@ import {  SignInUser,SignUpUser,SignOutUser} from "./API";
   signUserIn = () => {
     SignInUser(this.state.form.email.value, this.state.form.password.value)
       .then((data) => {
-        console.warn(data)
+        // console.warn(data)
         this.setState({user: data})
         alert(data);
-        this.manageAccess(this.state.user)
+        this.manageAccess(this.state.user.uid)
         this.props.goNext()
       })
       .catch((err) => {
@@ -200,7 +197,7 @@ import {  SignInUser,SignUpUser,SignOutUser} from "./API";
   signUserUp = () => {
     SignUpUser(this.state.form.email.value, this.state.form.password.value)
       .then((data) => {
-        console.warn(data)
+        // console.warn(data)
         alert(data);
         this.props.goNext()
       })

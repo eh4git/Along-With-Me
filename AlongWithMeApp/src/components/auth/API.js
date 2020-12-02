@@ -1,12 +1,12 @@
-import {Auth} from '../../App';
-import * as firebase from "firebase";
+import { Auth, firebase } from '../../App';
+// import * as firebase from "firebase";
 
 export const SignUpUser = (email, password) => {
   return new Promise(function (resolve, reject) {
     Auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        
+
         resolve(firebase.auth.CurrentUser)
       })
       .catch((err) => {

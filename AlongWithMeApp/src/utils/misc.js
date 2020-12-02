@@ -19,7 +19,9 @@ export const getTokens = (cb) =>{
     })
 }
 
+//ERIK/VINNIE needs to receive token, refreshToken, and uid
 export const setTokens = (values,cb) =>{
+    // console.warn(values)
     const dateNow = new Date();
     const expiration = dateNow.getTime() + (3600 * 1000)
 
